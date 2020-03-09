@@ -36,12 +36,15 @@
     .brand_logo {
         height: 150px;
         width: 150px;
+        padding-top: 50px;
         border-radius: 50%;
         border: 2px solid white;
     }
     .form_container {
         margin-top: 100px;
     }
+
+    /* Login Style */
     .login_btn {
         width: 100%;
         background: #c0392b !important;
@@ -67,4 +70,36 @@
     }
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #c0392b !important;
+    }
+
+    /* Register Style */
+    .user_card_reg {
+        height: 500px;
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #f39c12;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+
+    .reg_btn {
+        width: 100%;
+        background: #c0392b !important;
+        color: white !important;
+    }
+    .reg_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .reg_container {
+        padding: 0 2rem;
     }
