@@ -62,7 +62,7 @@ body {
 
 #sidebar-wrapper {
   min-height: 100vh;
-  margin-left: -10rem;
+  margin-left: -16rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
@@ -75,7 +75,7 @@ body {
 }
 
 #sidebar-wrapper .list-group {
-  width: 15rem;
+  width: 16rem;
 }
 
 #page-content-wrapper {
@@ -97,6 +97,6 @@ body {
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
+    margin-left: -16rem;
   }
 }

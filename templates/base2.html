@@ -14,9 +14,15 @@
         <link rel="stylesheet" href="{% static 'css/styles_home.css' %}" type="text/css">
     </head>
     <body>
-        {% block content %}
+        <div class="d-flex" id="wrapper">
+            {% include 'sidebar.html' %}
+            <div id="page-content-wrapper">
+                {% include 'navbar.html' %}
+                {% block content %}
 
-        {% endblock %}
+                {% endblock %}
+            </div>
+        </div>        
     </body>
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
