@@ -7,7 +7,6 @@
         background: #60a3bc !important;
     }
     .user_card {
-        height: 400px;
         width: 350px;
         margin-top: auto;
         margin-bottom: auto;
@@ -74,7 +73,6 @@
 
     /* Register Style */
     .user_card_reg {
-        height: 500px;
         width: 350px;
         margin-top: auto;
         margin-bottom: auto;
