@@ -1,0 +1,59 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mt-4">Available Flights:</h2>
+    <div class="row ml-4 mt-4">
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/places/boracay.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Boracay the great.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/places/palawan.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Palawan where the sea is neat.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/places/siargao.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Siargao the party island.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+    </div>
+    <div class="row ml-4 mt-4">
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/places/cebu.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Travel with us in Cebu.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/places/hundred_islands.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Hundred Islands.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/places/mindanao.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Mindanao.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- Menu toggle script -->
+
+{% endblock %}

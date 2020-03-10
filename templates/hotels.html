@@ -1,0 +1,59 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mt-4">Check-in for a stay:</h2>
+    <div class="row ml-4 mt-4">
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/hotels/alta_vista.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Alta Vista Resort.</figcaption>
+            </figure>
+            <a href="#">Check-in</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/hotels/haven_resort.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Haven Hotel/Resort.</figcaption>
+            </figure>
+            <a href="#">Check-in</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/hotels/hotel_aqua.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Hotel Aqua.</figcaption>
+            </figure>
+            <a href="#">Check-in</a>
+        </div>
+    </div>
+    <div class="row ml-4 mt-4">
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/hotels/bulan_vilas.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Bulan Villas Siargao Hotel/Resort</figcaption>
+            </figure>
+            <a href="#">Check-in</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/hotels/hundred_island_hotel.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Hundred Islands Resort and Hotel.</figcaption>
+            </figure>
+            <a href="#">Check-in</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/hotels/sofitel.jpeg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Sofitel</figcaption>
+            </figure>
+            <a href="#">Check-in</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- Menu toggle script -->
+
+{% endblock %}
