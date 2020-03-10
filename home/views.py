@@ -6,6 +6,9 @@ from django.contrib import messages
 
 from .forms import EditProfileForm
 
+@login_required(login_url='/')
+def resto(request):
+    return render(request, "restaurant.html", {})
 
 @login_required(login_url='/')
 def hotels(request):

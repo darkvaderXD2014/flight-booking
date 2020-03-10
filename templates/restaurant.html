@@ -1,0 +1,59 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Restaurants{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mt-4">Reserve your seat:</h2>
+    <div class="row ml-4 mt-4">
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/resto/d_mall_boracay.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay Restaurant">
+                <figcaption class="figure-caption">D'Mall Boracay Restaurant.</figcaption>
+            </figure>
+            <a href="#">Reserve</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/resto/la_isla_siargao.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">La Isla Siargao Bar and Grill Resto.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/resto/harana_surf.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Harana Surf Restaurant and Resort.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+    </div>
+    <div class="row ml-4 mt-4">
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/resto/soho_park_cebu.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Soho Park Restaurant in Cebu (Fancy)</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/resto/maxine_hundred_island.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Hundred Islands' Restaurant.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+        <div class="col-sm">
+            <figure class="figure">
+                <img src="{% static 'img/resto/davao_restaurant.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
+                <figcaption class="figure-caption">Davao's Famous Restaurant.</figcaption>
+            </figure>
+            <a href="#">Checkout</a>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- Menu toggle script -->
+
+{% endblock %}
