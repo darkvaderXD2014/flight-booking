@@ -5,26 +5,45 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import EditProfileForm
+from .models import Profile, Flights
+
+
+@login_required(login_url='/')
+def checkout(request):
+    if request.method == 'POST':
+        pass
+    return render(request, "checkout.html", {})
+
+
+@login_required(login_url='/')
+def schedules(request):
+    return render(request, "schedules.html", {})
+
 
 @login_required(login_url='/')
 def resto(request):
     return render(request, "restaurant.html", {})
 
+
 @login_required(login_url='/')
 def hotels(request):
     return render(request, "hotels.html", {})
+
 
 @login_required(login_url='/')
 def flights(request):
     return render(request, "flights.html", {})
 
+
 @login_required(login_url='/')
 def home(request):
     return render(request, "home.html", {})
 
+
 @login_required(login_url='/')
 def profile(request):
     return render(request, "profile.html", {})
+
 
 @login_required(login_url='/')
 def settings(request):
@@ -32,12 +51,11 @@ def settings(request):
         form = EditProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request,'Updates has been successful.')
-            return redirect('settings')      
-                      
+            messages.success(request, 'Updates has been successful.')
+            return redirect('settings')
+
     else:
         form = EditProfileForm(request.POST, instance=request.user)
-        
 
     context = {'form': form}
     return render(request, 'settings.html', context)

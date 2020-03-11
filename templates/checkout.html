@@ -1,0 +1,42 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block title %} Checkout {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <form method="POST" action="checkout">
+        {% csrf_token %}
+        <div class="form-group mb-3 mt-2">
+            <label for="Destination">Destination</label>
+            <input type="text" class="form-control" placeholder="Destination">
+        </div>
+        <div class="form-group mb-3">
+            <label for="Description">Description</label>
+            <input type="text" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group mb-3">
+            <label for="Departure">Date of Departure</label>
+            <input type="text" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group mb-3">
+            <label for="Arrival">Date of Arrival</label>
+            <input type="text" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group">
+            <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('#picker').datetimepicker({
+        timepicker: false,
+        datepicker: true,
+        format: 'm-d-Y',
+        value: '2020',
+        weeks: true
+    });
+</script>
+
+{% endblock %}
