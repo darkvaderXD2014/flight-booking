@@ -113,6 +113,6 @@ a:hover{
 
 #list-group-bottom 
 {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }

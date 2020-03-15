@@ -4,7 +4,7 @@
 {% block content %}
 <h2 class='mt-4 ml-2'>Add Hotel</h2>
 <div class="container-fluid">
-    <form method="POST" action="addresto" class="mt-4">
+    <form method="POST" action="{% url 'addhotel' %}" class="mt-4" enctype="multitype/form-data">
     	{% csrf_token %}
     	<div class='input-group mb-3' style="max-width: 255px;">
     		<span class='input-group-text'><i class="fas fa-plane-departure"></i></span>
@@ -26,7 +26,7 @@
     		<span class='input-group-text'><i class="fas fa-money-bill-wave"></i></span>	
     		{{form.price}}	
     	</div>
-    	<input type="submit" value="Submit" class="btn btn-primary" />
+    	<button type="submit" class="btn btn-primary">Submit Details</button>
     </form>
 </div>
 <script type="text/javascript">

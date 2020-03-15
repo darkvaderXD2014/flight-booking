@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Restaurants{% endblock %}
 {% block content %}
-<div class="container-fluid">
+<!--<div class="container-fluid">
     <h2 class="mt-4">Reserve your seat:</h2>
     <div class="row ml-4 mt-4">
         <div class="col-sm">
@@ -52,8 +52,25 @@
     </div>
     
     
-</div>
+</div>-->
 
+<div class="container-fluid">
+    <h2 class="mt-4">Dine to a Restaurant:</h2>
+    {% if flights.exists %}
+        {% for object in flights %}
+        <div class="row ml-4 mt-4">
+            <div class="col-sm shadow p-3 mb-5 bg-white rounded" style="max-width: 330px;">
+                <img src="{{object.imageFile.url}}" class="image-fluid image-thumbnail rounded" alt="{{object.name}}"  style="max-width: 300px; max-height: 300px;"/>
+                <p class="display-4">{{object.name}}</p>
+                <p class="lead">${{object.price}}</p>
+            </div>
+        </div>
+        {% endfor %}        
+    {% else %}
+        <h3 class="mt-4" style="color: red;">There is no current available restaurant right at this moment :/ </h3>
+    {% endif %}
+    
+</div>
 <!-- Menu toggle script -->
 
 {% endblock %}
