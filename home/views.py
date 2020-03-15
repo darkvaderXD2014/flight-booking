@@ -5,13 +5,10 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import EditProfileForm
-from .models import Profile, Flights
 
 
 @login_required(login_url='/')
 def checkout(request):
-    if request.method == 'POST':
-        pass
     return render(request, "checkout.html", {})
 
 
