@@ -6,7 +6,6 @@ from django.contrib import messages
 
 from .forms import EditProfileForm
 
-
 @login_required(login_url='/')
 def checkout(request):
     return render(request, "checkout.html", {})
@@ -29,7 +28,20 @@ def hotels(request):
 
 @login_required(login_url='/')
 def flights(request):
-    return render(request, "flights.html", {})
+    flights_list = Flights.objects.all()
+    filtered_orders = PlannedFlights.objects.filter(owner=request.user.profile, is_planned=False)
+    current_planned_flights = []
+    if filtered_orders.exists():
+        user_order = filtered_order[0]
+        user_order_items = user_order.items.all()
+        current_planned_flights = [product.product for product in user_order_items]
+
+    context = {
+        'object_list' : object_list,
+        'current_order_product' : current_planned_flights
+    }
+    
+    return render(request, "flights.html", context)
 
 
 @login_required(login_url='/')

@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Flights{% endblock %}
 {% block content %}
+<!--
 <div class="container-fluid">
     <h2 class="mt-4">Available Flights:</h2>
     <div class="row ml-4 mt-4">
@@ -53,7 +54,15 @@
     
     
 </div>
-
+-->
+<div class="container-fluid">
+    <h2 class="mt-4">Available Flights:</h2>
+    {% for object in object_list %}
+    <div class="col-sm">
+            <p>{{object.name}}</p>
+            <p>${{object.price}}</p>
+        </div>
+</div>
 <!-- Menu toggle script -->
 
 {% endblock %}
