@@ -1,61 +1,3 @@
-/*
-
-
-#sidebar-wrapper{
-    z-index: 1;
-    position: absolute;
-    width: 0;
-    height: 100%;
-    overflow-y: hidden;
-    background: #f39c12;
-
-    -webkit-transition: margin .25s ease-out;
-    -moz-transition: margin .25s ease-out;
-    -o-transition: margin .25s ease-out;
-    transition: margin .25s ease-out;
-}
-
-#sidebar-wrapper .sidebar-heading {
-    font-size: 1.2em;
-    padding: 0.875rem 1.25rem;
-}
-
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-}
-
-#wrapper.menuDisplayed #sidebar-wrapper{
-    width: 250px;
-}
-
-#wrapper.menuDisplayed #page-content-wrapper{
-    padding-left: 250px;
-}
-
-.sidebar-nav {
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #ddd;
-}
-.sidebar-nav li a:hover {
-    background: #16A085
-}
-
-*/
-
 body {
   overflow-x: hidden;
 }
@@ -117,8 +59,13 @@ a:hover{
   bottom: 0;
 }
 
-#itemOption
+.scroll-group > .row
 {
-  float: right;
-  border: solid 1px black;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scroll-group > .row > .col-sm-3 {
+  display: inline-block;
+  float: none;
 }

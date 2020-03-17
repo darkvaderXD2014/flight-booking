@@ -2,30 +2,47 @@
 {% load static %}
 {% block title %}Hotels{% endblock %}
 {% block content %}
-<div class="container-fluid">
-    <h2 class="mt-4">Check-in for a Hotel: </h2>
+<div class="container-fluid scroll-group">
+    <h2 class="mt-4">Check in a hotel: </h2>
     {% if hotels.exists %}
+    <div class="row flex-nowrap mt-4">
         {% for object in hotels %}
-        <div class="card shadow p-2 mb-5 bg-white rounded" style="width: 18rem;">
-            <img class="card-img-top" src="{{object.imageFile.url}}" alt={{object.name}}>
-            <div class="card-body">
-                <h5 class="card-title">{{object.name}}</h5>
-                {% if object.desc != '' %}
-                    <p class="card-text">{{object.desc}}</p>
-                {% else %}
-                    <p>No description.</p>
-                {% endif %}
-                <p class="card-text lead">${{object.price}}</p>
-                <a href="#" class="badge badge-success p-2 card-link" id="dineIn">Check-in</a>
-                {% if request.user.is_superuser %} 
-                    <a href="{% url 'del_hotels' object.id %}" class="badge badge-danger p-2 card-link" id="dineIn">Remove Item</a> 
-                {% endif %}
+        <div class="col-sm-3 col-md-3">
+            <div class="card card-block shadow p-2 mb-5 bg-white rounded" style="width: 18rem; height: 25rem;">
+                <img class="card-img-top" src="{{object.imageFile.url}}" alt={{object.name}}>
+                <div class="card-body">
+                    <h5 class="card-title">{{object.name}}</h5>
+                    {% if object.desc != '' %}
+                        <p class="card-text">{{object.desc}}</p>
+                    {% else %}
+                        <p>No description.</p>
+                    {% endif %}
+                    <p class="card-text lead">${{object.price}}</p>
+                    <a href="#" class="badge badge-success p-2 card-link mr-5" id="dineIn">Check-in</a>
+                    {% if request.user.is_superuser %} 
+                        <a href="{% url 'del_flights' object.id %}" class="badge badge-danger p-2 card-link" id="dineIn">Remove Item</a> 
+                    {% endif %}
+                </div>
             </div>
         </div>
-        {% endfor %}
+        {% endfor %}    
+    </div>
+    </center>    
     {% else %}
         <h3 class="mt-4" style="color: red;">There are no current available hotels right at this moment :/ </h3>
     {% endif %}
+    <br /><br />
+    <center>
+    <div class="row">
+        <div class="col-2 mx-auto">
+            <span>Flights</span>
+            <a href="{% url 'flights' %}" title="Check in for a Hotel."><i class="fas fa-arrow-circle-left fa-4x"></i></a>
+        </div>
+        <div class="col-2 mx-auto justify-content-center align-items-center">
+            <a href="{% url 'restaurant' %}" title="Go back to Available flights."><i class="fas fa-arrow-circle-right fa-4x"></i></a>
+            <span>Resto</span>
+        </div>    
+    </div>
 </div>
 <!-- Menu toggle script -->
 
