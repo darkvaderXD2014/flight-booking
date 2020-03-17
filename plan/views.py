@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import get_object_or_404
 
-from .models import RestoAndHotels, Flights, Booker
-from .forms import RestoAndHotelsForm,FlightsForm
+from .models import Resto, Hotels, Flights, Booker
+from .forms import RestoForm, HotelsForm,FlightsForm
+from . import models
 # Create your views here.
 
 def flight_list(request):
@@ -22,12 +23,12 @@ def plan(request):
 @staff_member_required(login_url='/')
 def addhotel(request):
 	if request.method == 'POST':
-		form = RestoAndHotelsForm(request.POST, request.FILES)
+		form = HotelsForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('flights')
+			return redirect('hotels')
 	else:
-		form = RestoAndHotelsForm()
+		form = HotelsForm()
 
 	context = {
 		'form' : form
@@ -37,12 +38,12 @@ def addhotel(request):
 @staff_member_required(login_url='/')
 def addresto(request):
 	if request.method == 'POST':
-		form = RestoAndHotelsForm(request.POST, request.FILES)
+		form = RestoForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('flights')
+			return redirect('restaurant')
 	else:
-		form = RestoAndHotelsForm()
+		form = RestoForm()
 
 	context = {
 		'form' : form
@@ -56,6 +57,8 @@ def addflights(request):
 		if form.is_valid():
 			form.save()
 			return redirect('flights')
+		else:
+			print('Error..')
 	else:
 		form = FlightsForm()
 		

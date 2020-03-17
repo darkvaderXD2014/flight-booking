@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import EditProfileForm
-from plan.models import Booker, Flights
+from plan.models import Booker, Flights, Hotels, Resto
 
 @login_required(login_url='/')
 def checkout(request):
@@ -16,19 +17,45 @@ def checkout(request):
 def schedules(request):
     return render(request, "schedules.html", {})
 
+@staff_member_required(login_url='/')
+def del_hotels(request, pk):
+    query = Hotels.objects.get(id=pk)
+    query.delete()
+    return redirect('flights')
+
+@staff_member_required(login_url='/')
+def del_resto(request, pk):
+    query = Resto.objects.get(id=pk)
+    query.delete()
+    return redirect('flights')
+
+@staff_member_required(login_url='/')
+def del_flights(request, pk):
+    query = Flights.objects.get(id=pk)
+    query.delete()
+    return redirect('flights')
 
 @login_required(login_url='/')
-def resto(request):
-    return render(request, "restaurant.html", {})
+def restaurant(request):
+    context ={
+        'resto' : Resto.objects.all()
+    }
+    return render(request, "restaurant.html", context)
 
 
 @login_required(login_url='/')
 def hotels(request):
-    return render(request, "hotels.html", {})
+    context = {
+        'hotels' : Hotels.objects.all()
+    }
+    return render(request, "hotels.html", context)
 
 
 @login_required(login_url='/')
 def flights(request):
+
+
+        
     context = {
         'flights' : Flights.objects.all()
     }

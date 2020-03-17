@@ -1,17 +1,23 @@
-import os
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 # Create your models here.
 
-'''BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UPLOADS_FILE = os.path.join(BASE_DIR, 'assets\\uploads')'''
-
-class RestoAndHotels(models.Model):
+class Hotels(models.Model):
     name = models.CharField(max_length=100)
     desc = models.TextField(blank=True, null=True)
     address = models.CharField(max_length=100, null=True)
-    imageFile = models.ImageField(upload_to='hotels_and_resto/')
+    imageFile = models.ImageField(upload_to='hotels_and_resto/', null=True, blank=True)
+    price = models.DecimalField(blank=True, decimal_places=2, max_digits=7, default=1000)
+
+    def __str__(self):
+        return self.name
+
+class Resto(models.Model):
+    name = models.CharField(max_length=100)
+    desc = models.TextField(blank=True, null=True)
+    address = models.CharField(max_length=100, null=True)
+    imageFile = models.ImageField(upload_to='hotels_and_resto/', null=True, blank=True)
     price = models.DecimalField(blank=True, decimal_places=2, max_digits=7, default=1000)
 
     def __str__(self):
@@ -20,8 +26,8 @@ class RestoAndHotels(models.Model):
 class Flights(models.Model):
     name = models.CharField(max_length=100)
     desc = models.TextField(blank=True, null=True)
-    dest = models.CharField(max_length=100, null=True)
-    imageFile = models.ImageField(upload_to='places/')
+    dest = models.CharField(max_length=100, blank=True)
+    imageFile = models.ImageField(upload_to='places/', null=True, blank=True)
     price = models.DecimalField(blank=True, decimal_places=2, max_digits=7, default=1000)
 
     def __str__(self):

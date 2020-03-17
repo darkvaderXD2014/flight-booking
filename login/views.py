@@ -15,6 +15,9 @@ def loginPage(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
+            remember_me = request.POST.get('remember_me')
+            if remember_me is not None:
+                request.session.set_expiry(1209600)
 
             if user is not None:
                 login(request, user)

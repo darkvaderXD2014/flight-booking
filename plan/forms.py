@@ -2,11 +2,16 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from .models import Flights, RestoAndHotels
+from .models import Flights, Resto, Hotels
 
-class RestoAndHotelsForm(ModelForm):
+class RestoForm(ModelForm):
 	class Meta:
-		model = RestoAndHotels
+		model = Resto
+		fields = ['name', 'desc', 'address', 'imageFile', 'price']
+
+class HotelsForm(ModelForm):
+	class Meta:
+		model = Hotels
 		fields = ['name', 'desc', 'address', 'imageFile', 'price']
 
 class FlightsForm(ModelForm):

@@ -4,7 +4,7 @@
 {% block content %}
 <h2 class='mt-4 ml-2'>Add Flights</h2>
 <div class="container-fluid">
-    <form method="POST" action="{% url 'addflights' %}" class="mt-4" enctype="multitype/form-data">
+    <form method="POST" action="addflights" class="mt-4" enctype="multipart/form-data">
     	{% csrf_token %}
     	<div class='input-group mb-3' style="max-width: 255px;">
     		<span class='input-group-text'><i class="fas fa-plane-departure"></i></span>
@@ -20,13 +20,19 @@
     	</div>
     	<div class='input-group mb-3' >
     		<span class='input-group-text'><i class="fas fa-images"></i></span>	
-    		{{form.imageFile}}	
+    		{{form.imageFile}}
     	</div>
     	<div class='input-group mb-3' style="max-width: 255px;">
     		<span class='input-group-text'><i class="fas fa-money-bill-wave"></i></span>	
     		{{form.price}}	
     	</div>
+
     	<button type="submit" class="btn btn-primary">Submit Details</button>
+        {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        {% endfor %}
     </form>
 </div>
 <script type="text/javascript">

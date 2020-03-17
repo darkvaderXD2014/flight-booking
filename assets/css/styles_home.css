@@ -116,3 +116,9 @@ a:hover{
   position: fixed;
   bottom: 0;
 }
+
+#itemOption
+{
+  float: right;
+  border: solid 1px black;
+}

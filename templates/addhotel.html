@@ -4,7 +4,7 @@
 {% block content %}
 <h2 class='mt-4 ml-2'>Add Hotel</h2>
 <div class="container-fluid">
-    <form method="POST" action="{% url 'addhotel' %}" class="mt-4" enctype="multitype/form-data">
+    <form method="POST" action="addhotel" class="mt-4" enctype="multipart/form-data">
     	{% csrf_token %}
     	<div class='input-group mb-3' style="max-width: 255px;">
     		<span class='input-group-text'><i class="fas fa-plane-departure"></i></span>

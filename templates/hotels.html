@@ -2,75 +2,31 @@
 {% load static %}
 {% block title %}Hotels{% endblock %}
 {% block content %}
-<!--<div class="container-fluid">
-    <h2 class="mt-4">Check-in for a stay:</h2>
-    <div class="row ml-4 mt-4">
-        <div class="col-sm">
-            <figure class="figure">
-                <img src="{% static 'img/hotels/alta_vista.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
-                <figcaption class="figure-caption">Alta Vista Resort.</figcaption>
-            </figure>
-            <a href="#">Check-in</a>
-        </div>
-        <div class="col-sm">
-            <figure class="figure">
-                <img src="{% static 'img/hotels/haven_resort.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
-                <figcaption class="figure-caption">Haven Hotel/Resort.</figcaption>
-            </figure>
-            <a href="#">Check-in</a>
-        </div>
-        <div class="col-sm">
-            <figure class="figure">
-                <img src="{% static 'img/hotels/hotel_aqua.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
-                <figcaption class="figure-caption">Hotel Aqua.</figcaption>
-            </figure>
-            <a href="#">Check-in</a>
-        </div>
-    </div>
-    <div class="row ml-4 mt-4">
-        <div class="col-sm">
-            <figure class="figure">
-                <img src="{% static 'img/hotels/bulan_vilas.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
-                <figcaption class="figure-caption">Bulan Villas Siargao Hotel/Resort</figcaption>
-            </figure>
-            <a href="#">Check-in</a>
-        </div>
-        <div class="col-sm">
-            <figure class="figure">
-                <img src="{% static 'img/hotels/hundred_island_hotel.jpg' %}" class="figure-img img-fluid rounded" alt="Boracay">
-                <figcaption class="figure-caption">Hundred Islands Resort and Hotel.</figcaption>
-            </figure>
-            <a href="#">Check-in</a>
-        </div>
-        <div class="col-sm">
-            <figure class="figure">
-                <img src="{% static 'img/hotels/sofitel.jpeg' %}" class="figure-img img-fluid rounded" alt="Boracay">
-                <figcaption class="figure-caption">Sofitel</figcaption>
-            </figure>
-            <a href="#">Check-in</a>
-        </div>
-    </div>
-    
-    
-</div> -->
 <div class="container-fluid">
-    <h2 class="mt-4">Check-in for a Hotel:</h2>
-    {% if flights.exists %}
-        {% for object in flights %}
-        <div class="row ml-4 mt-4">
-            <div class="col-sm shadow p-3 mb-5 bg-white rounded" style="max-width: 330px;">
-                <img src="{{object.imageFile.url}}" class="image-fluid image-thumbnail rounded" alt="{{object.name}}"  style="max-width: 300px; max-height: 300px;"/>
-                <p class="display-4">{{object.name}}</p>
-                <p class="lead">${{object.price}}</p>
+    <h2 class="mt-4">Check-in for a Hotel: </h2>
+    {% if hotels.exists %}
+        {% for object in hotels %}
+        <div class="card shadow p-2 mb-5 bg-white rounded" style="width: 18rem;">
+            <img class="card-img-top" src="{{object.imageFile.url}}" alt={{object.name}}>
+            <div class="card-body">
+                <h5 class="card-title">{{object.name}}</h5>
+                {% if object.desc != '' %}
+                    <p class="card-text">{{object.desc}}</p>
+                {% else %}
+                    <p>No description.</p>
+                {% endif %}
+                <p class="card-text lead">${{object.price}}</p>
+                <a href="#" class="badge badge-success p-2 card-link" id="dineIn">Check-in</a>
+                {% if request.user.is_superuser %} 
+                    <a href="{% url 'del_hotels' object.id %}" class="badge badge-danger p-2 card-link" id="dineIn">Remove Item</a> 
+                {% endif %}
             </div>
         </div>
-        {% endfor %}        
+        {% endfor %}
     {% else %}
-        <h3 class="mt-4" style="color: red;">There is no current available hotels right at this moment :/ </h3>
+        <h3 class="mt-4" style="color: red;">There are no current available hotels right at this moment :/ </h3>
     {% endif %}
-    
 </div>
-
 <!-- Menu toggle script -->
 
 {% endblock %}
