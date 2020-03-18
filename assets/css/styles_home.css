@@ -62,10 +62,4 @@ a:hover{
 .scroll-group > .row
 {
   overflow-x: auto;
-  white-space: nowrap;
-}
-
-.scroll-group > .row > .col-sm-3 {
-  display: inline-block;
-  float: none;
 }
