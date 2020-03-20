@@ -15,19 +15,26 @@ def checkout(request):
 
 @login_required(login_url='/')
 def schedules(request):
-    return render(request, "schedules.html", {})
+
+    pl_b = PlannedFlights.objects.filter(user_id=request.user.id)
+
+
+    context = {
+        'sched' : pl_b
+    }
+    return render(request, "schedules.html", context)
 
 @staff_member_required(login_url='/')
 def del_hotels(request, pk):
     query = Hotels.objects.get(id=pk)
     query.delete()
-    return redirect('flights')
+    return redirect('hotels')
 
 @staff_member_required(login_url='/')
 def del_resto(request, pk):
     query = Resto.objects.get(id=pk)
     query.delete()
-    return redirect('flights')
+    return redirect('restaurant')
 
 @staff_member_required(login_url='/')
 def del_flights(request, pk):

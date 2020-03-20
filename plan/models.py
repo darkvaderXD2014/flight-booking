@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.urls import reverse
 # Create your models here.
 
 class Hotels(models.Model):
@@ -35,6 +36,9 @@ class Flights(models.Model):
 
     def __unicode__(self):
         return "%s" % (self.name)
+
+    def get_absolute_url(self):
+        return reverse("add_flight_plan",kwargs={"id":self.id})
 
 class Booker(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -11,6 +11,12 @@ def flight_list(request):
 	context = {}
 	return render(request, 'flights.html', context)
 
+def del_flight_plan(request, pk):
+	pl_b = PlannedFlights.objects.filter(id=pk).delete()
+
+	context = {}
+	return redirect('schedules')
+
 def add_flight_plan(request, pk):
 	flight_item = Flights.objects.get(id=pk)
 
@@ -34,7 +40,7 @@ def add_flight_plan(request, pk):
 			planned_fl.planned = True
 
 			planned_fl.save()
-			return redirect('home')
+			return redirect('schedules')
 		else:
 			print(form.errors)
 	else:
