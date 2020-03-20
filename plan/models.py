@@ -33,6 +33,9 @@ class Flights(models.Model):
     def __str__(self):
         return self.name
 
+    def __unicode__(self):
+        return "%s" % (self.name)
+
 class Booker(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -48,9 +51,9 @@ post_save.connect(post_save_profile_create, sender=User)
 # Handles Users to Plan their Flights
 class Planner(models.Model):
     flights = models.OneToOneField(Flights, on_delete=models.SET_NULL, null=True)
-    is_planned = models.BooleanField(default=False)
-    date_added = models.DateTimeField(auto_now=True)
     booker = models.ForeignKey(Booker, on_delete=models.SET_NULL, null=True)
+    is_planned = models.BooleanField(default=False)
+    date_added = models.DateTimeField(auto_now=True)    
 
     def __str__(self):
         return self.flights.name
@@ -59,7 +62,8 @@ class Planner(models.Model):
 class PlannedFlights(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(Flights, null=True)
-    start_date = models.DateTimeField(auto_now_add=True)
+    desc = models.TextField(blank=True, null=True)
+    start_date = models.DateTimeField(null=True)
     end_date = models.DateTimeField(null=True)
     planned = models.BooleanField(default=False, verbose_name='Planned')
 

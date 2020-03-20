@@ -12,8 +12,7 @@
         <script src="https://kit.fontawesome.com/cc3b6ebc34.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
         <link rel="stylesheet" href="{% static 'css/styles_home.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/datepicker.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/jquery.datetimepicker.min.css' %}" type="text/css">
+        {% block style_add %} {% endblock %}
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -35,6 +34,5 @@
            $("#wrapper").toggleClass("toggled");
         });
     </script>
-    <script src="{% static 'js/jquery.datetimepicker.min.js' %}"></script>
     {% block script %}{% endblock %}
 </html>

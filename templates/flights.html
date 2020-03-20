@@ -20,7 +20,7 @@
                         {% endif %}
                         <p class="card-text lead"><span>&#8369;</span> {{object.price}}</p>
                         <div class="card-container" style="white-space: nowrap;">
-                        <a href="#" class="badge badge-success p-2 card-link mr-5" id="dineIn">Book Now</a>
+                        <a href="{% url 'add_flight_plan' object.id %}" class="badge badge-success p-2 card-link mr-5" id="dineIn">Book Now</a>
                         {% if request.user.is_superuser %} 
                             <a href="{% url 'del_flights' object.id %}" class="badge badge-danger p-2 card-link" id="dineIn">Remove Item</a> 
                         {% endif %}

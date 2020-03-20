@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import EditProfileForm
-from plan.models import Booker, Flights, Hotels, Resto
+from plan.models import Booker, Flights, Hotels, Resto, PlannedFlights
 
 @login_required(login_url='/')
 def checkout(request):
